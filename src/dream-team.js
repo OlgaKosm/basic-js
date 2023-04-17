@@ -1,4 +1,4 @@
-const { NotImplementedError } = require('../extensions/index.js');
+
 
 /**
  * Create name of dream team based on the names of its members
@@ -13,10 +13,39 @@ const { NotImplementedError } = require('../extensions/index.js');
  * createDreamTeam(['Olivia', 1111, 'Lily', 'Oscar', true, null]) => 'LOO'
  *
  */
-function createDreamTeam(/* members */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function createDreamTeam(members) {
+
+    if (members === null || members === undefined) {
+        return false;
+    }
+
+    if (typeof members === 'object') {
+      if (Object.keys(members).length === 1) {
+        return false;
+      }
+    }
+    if (typeof members !== 'string' && typeof members !== 'object') {
+      return false;
+    }
+
+
+  if (members.length === 0 ) {
+    return false;
+  }
+
+  let newArr = [];
+  members.forEach(el => {
+    if (typeof el === 'string') {
+      let newel = el.trim();
+      newArr.push(newel[0]);
+    }
+  });
+
+  return newArr.sort((a, b) => a.localeCompare(b)).join('').toUpperCase();
+
 }
+console.log(createDreamTeam(null));
+
 
 module.exports = {
   createDreamTeam
