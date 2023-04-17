@@ -44,7 +44,7 @@ function createDreamTeam(members) {
   return newArr.sort((a, b) => a.localeCompare(b)).join('').toUpperCase();
 
 }
-console.log(createDreamTeam(null));
+
 
 
 module.exports = {
